@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariana Reis | Nutricionista em Viçosa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#163f32;
+      --green-2:#245f4d;
+      --mint:#dff2e9;
+      --rose:#f4b6c4;
+      --rose-2:#ffe7ed;
+      --cream:#fffaf4;
+      --white:#ffffff;
+      --text:#17332a;
+      --muted:#66756f;
+      --line:rgba(22,63,50,.12);
+      --shadow:0 24px 70px rgba(22,63,50,.16);
+      --radius:28px;
+      --font:'Inter',Arial,sans-serif;
+      --display:'Playfair Display',serif;
+      --transition:all .35s cubic-bezier(.25,1,.5,1);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font);
+      color:var(--text);
+      background:var(--cream);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:100%;
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 24px;
+      position:relative;
+      z-index:2;
+    }
+
+    .section{
+      position:relative;
+      padding:94px 0;
+      overflow:hidden;
+    }
+
+    .bg-soft{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 10% 18%, rgba(244,182,196,.28), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(223,242,233,.72), transparent 36%),
+        radial-gradient(circle at 80% 88%, rgba(244,182,196,.22), transparent 32%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(36,95,77,.08);
+      border:1px solid rgba(36,95,77,.16);
+      color:var(--green-2);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .tag::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--rose);
+      box-shadow:0 0 0 6px rgba(244,182,196,.22);
+    }
+
+    .title{
+      font-family:var(--display);
+      font-size:58px;
+      line-height:1.02;
+      letter-spacing:-1.6px;
+      color:var(--green);
+      font-weight:800;
+    }
+
+    .title span{
+      color:#c87388;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.75;
+      max-width:660px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:999px;
+      padding:17px 28px;
+      font-size:13px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.9px;
+      transition:var(--transition);
+      cursor:pointer;
+      border:0;
+    }
+
+    .btn-main{
+      background:linear-gradient(135deg,var(--green),var(--green-2));
+      color:white;
+      box-shadow:0 18px 42px rgba(22,63,50,.24);
+    }
+
+    .btn-main:hover{
+      transform:translateY(-4px);
+      box-shadow:0 22px 56px rgba(22,63,50,.30);
+    }
+
+    .btn-soft{
+      background:#fff;
+      color:var(--green);
+      border:1px solid var(--line);
+    }
+
+    .btn-soft:hover{
+      transform:translateY(-4px);
+      border-color:rgba(200,115,136,.30);
+      box-shadow:0 18px 42px rgba(22,63,50,.10);
+    }
+
+    header{
+      position:absolute;
+      inset:0 0 auto 0;
+      z-index:20;
+      padding:24px 0;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(255,250,244,.72);
+      border:1px solid rgba(255,255,255,.70);
+      backdrop-filter:blur(18px);
+      box-shadow:0 12px 40px rgba(22,63,50,.08);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      color:var(--green);
+      letter-spacing:-.4px;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--green),var(--rose));
+      color:white;
+      font-family:var(--display);
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      color:#63756e;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .nav-links a:hover{color:var(--green)}
+
+    .nav-cta{
+      background:var(--green);
+      color:white;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:126px 0 64px;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg,#fffaf4 0%,#fdf1f3 42%,#eef8f1 100%);
+    }
+
+    .hero::after{
+      content:"MR";
+      position:absolute;
+      right:-38px;
+      bottom:-30px;
+      font-family:var(--display);
+      font-size:260px;
+      line-height:1;
+      color:rgba(22,63,50,.045);
+      font-weight:800;
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:58px;
+      align-items:center;
+    }
+
+    .hero h1{
+      margin-top:22px;
+      font-family:var(--display);
+      font-size:72px;
+      line-height:1;
+      letter-spacing:-2px;
+      color:var(--green);
+      max-width:720px;
+    }
+
+    .hero h1 span{color:#c87388}
+
+    .hero p{
+      margin-top:24px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.75;
+      max-width:620px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .hero-proof{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:38px;
+      max-width:680px;
+    }
+
+    .proof{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.85);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:0 18px 44px rgba(22,63,50,.08);
+    }
+
+    .proof strong{
+      display:block;
+      color:var(--green);
+      font-size:24px;
+      line-height:1;
+      margin-bottom:7px;
+      font-weight:900;
+    }
+
+    .proof span{
+      display:block;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.45;
+      font-weight:600;
+    }
+
+    .hero-photo{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .photo-card{
+      position:relative;
+      width:100%;
+      max-width:455px;
+      border-radius:38px;
+      padding:14px;
+      background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,231,237,.82));
+      border:1px solid rgba(255,255,255,.86);
+      box-shadow:var(--shadow);
+    }
+
+    .photo-card::before{
+      content:"";
+      position:absolute;
+      width:86%;
+      height:86%;
+      right:-30px;
+      bottom:-28px;
+      border-radius:38px;
+      border:2px solid rgba(36,95,77,.18);
+      z-index:-1;
+    }
+
+    .photo-card img{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+      object-position:center top;
+      border-radius:30px;
+    }
+
+    .float-badge{
+      position:absolute;
+      left:-28px;
+      bottom:42px;
+      max-width:268px;
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(255,255,255,.92);
+      box-shadow:0 20px 54px rgba(22,63,50,.16);
+      backdrop-filter:blur(18px);
+    }
+
+    .float-badge strong{
+      display:block;
+      color:var(--green);
+      font-size:18px;
+      margin-bottom:6px;
+      font-weight:900;
+    }
+
+    .float-badge span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .center{
+      text-align:center;
+      max-width:820px;
+      margin:0 auto 54px;
+    }
+
+    .center .title{margin-top:20px}
+    .center .subtitle{margin:20px auto 0}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(255,255,255,.88);
+      border-radius:var(--radius);
+      padding:34px;
+      box-shadow:0 18px 50px rgba(22,63,50,.08);
+      transition:var(--transition);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 24px 70px rgba(22,63,50,.13);
+    }
+
+    .icon{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:17px;
+      background:linear-gradient(135deg,var(--mint),var(--rose-2));
+      color:var(--green);
+      margin-bottom:22px;
+    }
+
+    .card h3{
+      color:var(--green);
+      font-size:22px;
+      line-height:1.18;
+      margin-bottom:13px;
+      font-weight:900;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.7;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.96fr 1.04fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .split.reverse{
+      grid-template-columns:1.04fr .96fr;
+    }
+
+    .image-box{
+      position:relative;
+      border-radius:34px;
+      padding:12px;
+      background:white;
+      box-shadow:var(--shadow);
+    }
+
+    .image-box::after{
+      content:"";
+      position:absolute;
+      inset:30px -22px -22px 30px;
+      border:2px solid rgba(244,182,196,.45);
+      border-radius:34px;
+      z-index:-1;
+    }
+
+    .image-box img{
+      width:100%;
+      border-radius:26px;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center top;
+    }
+
+    .copy-block .title{margin-top:20px}
+    .copy-block .subtitle{margin-top:22px}
+
+    .bullets{
+      display:grid;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .bullet{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:#53655e;
+      font-size:15px;
+      line-height:1.6;
+      background:rgba(255,255,255,.66);
+      border:1px solid rgba(255,255,255,.86);
+      padding:15px 16px;
+      border-radius:18px;
+    }
+
+    .bullet span{
+      flex-shrink:0;
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--mint);
+      color:var(--green);
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .steps{
+      display:grid;
+      gap:18px;
+      margin-top:32px;
+    }
+
+    .step{
+      display:grid;
+      grid-template-columns:60px 1fr;
+      gap:18px;
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(255,255,255,.88);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 16px 42px rgba(22,63,50,.07);
+    }
+
+    .num{
+      font-family:var(--display);
+      color:#c87388;
+      font-size:42px;
+      line-height:.9;
+      font-weight:800;
+    }
+
+    .step h3{
+      color:var(--green);
+      font-size:20px;
+      line-height:1.2;
+      margin-bottom:7px;
+      font-weight:900;
+    }
+
+    .step p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.65;
+    }
+
+    .highlight{
+      background:linear-gradient(135deg,var(--green),#0f2f25);
+      color:white;
+    }
+
+    .highlight .title,
+    .highlight .card h3{
+      color:white;
+    }
+
+    .highlight .subtitle,
+    .highlight .card p{
+      color:rgba(255,255,255,.72);
+    }
+
+    .highlight .tag{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.14);
+      color:var(--rose-2);
+    }
+
+    .highlight .card{
+      background:rgba(255,255,255,.065);
+      border-color:rgba(255,255,255,.11);
+      box-shadow:none;
+    }
+
+    .highlight .icon{
+      background:rgba(255,255,255,.10);
+      color:var(--rose-2);
+    }
+
+    .cta-section{
+      position:relative;
+      overflow:hidden;
+      padding:108px 0;
+      text-align:center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(244,182,196,.32), transparent 36%),
+        linear-gradient(135deg,#fffaf4,#eef8f1);
+    }
+
+    .cta-box{
+      max-width:930px;
+      margin:0 auto;
+      border-radius:40px;
+      padding:58px 36px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.92);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+    }
+
+    .cta-box .title{margin-top:20px}
+    .cta-box .subtitle{margin:22px auto 0}
+    .cta-box .btn{margin-top:32px}
+
+    .cta-note{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .faq-wrap{
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    details{
+      border-radius:22px;
+      margin-bottom:14px;
+      overflow:hidden;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(255,255,255,.90);
+      box-shadow:0 14px 42px rgba(22,63,50,.07);
+    }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:22px 24px;
+      font-weight:900;
+      color:var(--green);
+      font-size:17px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    summary::-webkit-details-marker{display:none}
+    summary::after{
+      content:"+";
+      color:#c87388;
+      font-size:26px;
+      line-height:1;
+    }
+    details[open] summary::after{content:"−"}
+
+    details p{
+      padding:0 24px 24px;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14.5px;
+    }
+
+    footer{
+      background:#102d24;
+      color:white;
+      padding:46px 0 30px;
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:30px;
+      padding-bottom:26px;
+      margin-bottom:22px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+
+    .footer-brand strong{
+      display:block;
+      font-family:var(--display);
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      line-height:1.6;
+      max-width:420px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .footer-links a:hover{color:white}
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:rgba(255,255,255,.48);
+      font-size:12px;
+    }
+
+    .credit{
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      font-weight:900;
+      color:rgba(255,255,255,.74);
+    }
+
+    @media(max-width:1024px){
+      .nav-links{display:none}
+      .hero{
+        min-height:auto;
+        padding:116px 0 68px;
+      }
+      .hero-grid,
+      .split,
+      .split.reverse{
+        grid-template-columns:1fr;
+        gap:50px;
+      }
+      .hero-text{text-align:center}
+      .hero h1{
+        font-size:58px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .hero p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .hero-actions{justify-content:center}
+      .hero-proof{
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .hero-photo{order:-1}
+      .cards{grid-template-columns:1fr}
+      .title{font-size:48px}
+    }
+
+    @media(max-width:768px){
+      .container{padding:0 20px}
+      .section{padding:68px 0}
+      header{padding:16px 0}
+      .nav{padding:11px 12px}
+      .brand span{display:none}
+      .brand-mark{
+        width:38px;
+        height:38px;
+      }
+      .nav-cta{
+        font-size:10px;
+        padding:10px 12px;
+      }
+      .hero{
+        padding:92px 0 56px;
+      }
+      .hero::after{
+        font-size:150px;
+        right:-22px;
+      }
+      .photo-card{
+        max-width:315px;
+        border-radius:30px;
+      }
+      .photo-card img{
+        height:385px;
+        border-radius:24px;
+      }
+      .float-badge{
+        position:relative;
+        left:auto;
+        bottom:auto;
+        margin:-28px auto 0;
+        max-width:288px;
+      }
+      .hero h1{
+        font-size:42px;
+        line-height:1.03;
+      }
+      .hero p,
+      .subtitle{
+        font-size:15.5px;
+      }
+      .hero-actions{
+        margin-top:28px;
+      }
+      .btn{
+        width:100%;
+        padding:16px 18px;
+        font-size:11px;
+      }
+      .hero-proof{
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-top:30px;
+      }
+      .proof{
+        display:flex;
+        align-items:center;
+        gap:14px;
+        text-align:left;
+        padding:16px;
+      }
+      .proof strong{
+        min-width:58px;
+        margin-bottom:0;
+      }
+      .title{
+        font-size:38px;
+        letter-spacing:-1px;
+      }
+      .center{
+        margin-bottom:36px;
+      }
+      .card{
+        padding:28px;
+      }
+      .image-box::after{
+        display:none;
+      }
+      .step{
+        grid-template-columns:46px 1fr;
+        gap:14px;
+        padding:19px;
+      }
+      .num{
+        font-size:33px;
+      }
+      .cta-section{
+        padding:72px 0;
+      }
+      .cta-box{
+        padding:40px 22px;
+        border-radius:30px;
+      }
+      summary{
+        font-size:15px;
+        padding:20px;
+      }
+      details p{
+        padding:0 20px 20px;
+      }
+      .footer-grid,
+      .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+      }
+      .footer-links{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a href="#inicio" class="brand">
+          <div class="brand-mark">MR</div>
+          <span>Mariana Reis</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#para-quem">Para quem é</a>
+          <a href="#metodo">Como funciona</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#duvidas">Dúvidas</a>
+        </nav>
+
+        <a href="#contato" class="nav-cta">Agendar avaliação</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="bg-soft"></div>
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-text">
+            <span class="tag">Nutricionista em Viçosa</span>
+
+            <h1>
+              Emagreça de forma <span>leve</span>, sem sofrimento e com acompanhamento.
+            </h1>
+
+            <p>
+              Um plano nutricional feito para a sua rotina, seus gostos e seus objetivos. Sem terrorismo alimentar, sem promessa impossível e sem precisar recomeçar toda segunda-feira.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://api.whatsapp.com/send/?phone=5531999771205&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+planos+de+acompanhamento+nutricional%2C+por+favor.&type=phone_number&app_absent=0&utm_source=ig" target="_blank" class="btn btn-main">Quero meu acompanhamento</a>
+              <a href="#metodo" class="btn btn-soft">Entender o processo</a>
+            </div>
+
+            <div class="hero-proof">
+              <div class="proof">
+                <strong>01</strong>
+                <span>Estratégia alimentar individualizada</span>
+              </div>
+              <div class="proof">
+                <strong>02</strong>
+                <span>Ajustes conforme sua evolução</span>
+              </div>
+              <div class="proof">
+                <strong>03</strong>
+                <span>Nutrição leve, possível e sem culpa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-photo">
+            <div class="photo-card">
+              <img src="./expert.jpg" alt="Mariana Reis Nutricionista">
+            </div>
+
+            <div class="float-badge">
+              <strong>Sozinha você tenta. Com acompanhamento você evolui.</strong>
+              <span>Mais clareza no que comer, como organizar sua rotina e como manter constância sem sofrimento.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="para-quem">
+      <div class="bg-soft"></div>
+      <div class="container">
+        <div class="center">
+          <span class="tag">Para quem é</span>
+          <h2 class="title">Para mulheres que querem resultado sem viver de <span>restrição</span>.</h2>
+          <p class="subtitle">
+            O acompanhamento é para quem cansou de dietas genéricas e quer aprender a emagrecer com uma estratégia que cabe na vida real.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 21s-7-4.35-9.33-9.08C.6 7.72 3.2 4 7.33 4c2.08 0 3.41 1.18 4.67 2.67C13.26 5.18 14.59 4 16.67 4c4.13 0 6.73 3.72 4.66 7.92C19 16.65 12 21 12 21Z"/>
+              </svg>
+            </div>
+            <h3>Você quer emagrecer sem sofrer</h3>
+            <p>Sem cardápio impossível, sem cortar tudo que gosta e sem depender de motivação para continuar.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M4 19h16M7 16V8M12 16V5M17 16v-6"/>
+              </svg>
+            </div>
+            <h3>Você já tentou várias dietas</h3>
+            <p>Para quem até começa bem, mas perde o controle no caminho e sente que sempre volta para o mesmo lugar.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <h3>Você precisa de direção</h3>
+            <p>Para parar de seguir dica solta da internet e ter clareza do que funciona para seu corpo e sua rotina.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="bg-soft"></div>
+      <div class="container">
+        <div class="split">
+
+          <div class="image-box">
+            <img src="./expert.jpg" alt="Nutricionista Mariana Reis">
+          </div>
+
+          <div class="copy-block">
+            <span class="tag">O que muda no acompanhamento</span>
+            <h2 class="title">Você não precisa comer menos. Precisa comer com mais <span>estratégia</span>.</h2>
+            <p class="subtitle">
+              O emagrecimento fica mais leve quando existe planejamento, rotina, ajustes e um caminho claro. A proposta não é te colocar em uma dieta que você odeia, mas construir um plano possível de seguir.
+            </p>
+
+            <div class="bullets">
+              <div class="bullet"><span>✓</span> Plano alimentar personalizado para sua rotina e preferências.</div>
+              <div class="bullet"><span>✓</span> Estratégia para emagrecimento com equilíbrio e constância.</div>
+              <div class="bullet"><span>✓</span> Orientação para reduzir culpa, compulsões e exageros.</div>
+              <div class="bullet"><span>✓</span> Ajustes durante o processo para você não ficar perdida.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight" id="metodo">
+      <div class="container">
+        <div class="center">
+          <span class="tag">Como funciona</span>
+          <h2 class="title">Um acompanhamento pensado para deixar sua evolução mais simples.</h2>
+          <p class="subtitle">
+            Você recebe orientação, estratégia e suporte para transformar alimentação em parte da rotina, sem radicalismo.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <h3>1. Avaliação completa</h3>
+            <p>Entendimento da sua rotina, histórico, dificuldades, objetivo e relação com a comida.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h10"/>
+              </svg>
+            </div>
+            <h3>2. Plano personalizado</h3>
+            <p>Estratégia nutricional prática, com opções realistas e alinhadas com sua vida.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 1 0 10 10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>3. Acompanhamento</h3>
+            <p>Ajustes conforme a evolução para melhorar adesão, resultado e constância.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="bg-soft"></div>
+      <div class="container">
+        <div class="split reverse">
+          <div class="copy-block">
+            <span class="tag">Sobre a nutri</span>
+            <h2 class="title">Mariana Reis, nutricionista com foco em emagrecimento leve.</h2>
+
+            <p class="subtitle">
+              Mariana atende mulheres que desejam emagrecer de forma mais tranquila, com um plano nutricional individualizado e acompanhamento para tornar o processo possível na rotina.
+            </p>
+
+            <p class="subtitle">
+              A proposta é sair do ciclo de culpa, restrição e recomeços constantes para construir uma alimentação com equilíbrio, autonomia e resultado.
+            </p>
+
+            <div class="steps">
+              <div class="step">
+                <div class="num">01</div>
+                <div>
+                  <h3>Sem terrorismo alimentar</h3>
+                  <p>O foco é ensinar escolhas melhores sem transformar comida em culpa.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="num">02</div>
+                <div>
+                  <h3>Sem plano genérico</h3>
+                  <p>A estratégia considera sua rotina, preferências e dificuldades reais.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="num">03</div>
+                <div>
+                  <h3>Sem caminhar sozinha</h3>
+                  <p>Com acompanhamento, você tem mais clareza para ajustar e continuar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="image-box">
+            <img src="./expert.jpg" alt="Mariana Reis nutricionista">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <span class="tag">Comece agora</span>
+          <h2 class="title">Dê o primeiro passo para emagrecer com mais leveza.</h2>
+          <p class="subtitle">
+            Clique no botão abaixo e fale pelo WhatsApp para receber mais informações sobre os planos de acompanhamento nutricional.
+          </p>
+
+          <a href="https://api.whatsapp.com/send/?phone=5531999771205&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+planos+de+acompanhamento+nutricional%2C+por+favor.&type=phone_number&app_absent=0&utm_source=ig" target="_blank" class="btn btn-main">
+            Falar no WhatsApp
+          </a>
+
+          <div class="cta-note">
+            Atendimento nutricional • Emagrecimento leve • Acompanhamento personalizado
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="bg-soft"></div>
+      <div class="container">
+        <div class="center">
+          <span class="tag">Dúvidas frequentes</span>
+          <h2 class="title">Antes de começar</h2>
+        </div>
+
+        <div class="faq-wrap">
+          <details>
+            <summary>O acompanhamento é individualizado?</summary>
+            <p>Sim. O plano é construído considerando sua rotina, objetivo, preferências alimentares, dificuldades e evolução.</p>
+          </details>
+
+          <details>
+            <summary>Preciso cortar tudo que gosto?</summary>
+            <p>Não. A ideia é criar uma estratégia possível, com equilíbrio e consciência, sem transformar alimentação em sofrimento.</p>
+          </details>
+
+          <details>
+            <summary>Serve para quem já tentou emagrecer várias vezes?</summary>
+            <p>Sim. O acompanhamento ajuda a organizar o processo, corrigir erros comuns e melhorar a constância.</p>
+          </details>
+
+          <details>
+            <summary>Como faço para saber os planos?</summary>
+            <p>Clique no botão de WhatsApp e envie a mensagem automática para receber mais informações sobre os planos de acompanhamento nutricional.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Mariana Reis</strong>
+          <p>Nutricionista em Viçosa. Acompanhamento nutricional para emagrecimento leve, possível e sem sofrimento.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#inicio">Início</a>
+          <a href="#para-quem">Para quem é</a>
+          <a href="#metodo">Como funciona</a>
+          <a href="#contato">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Mariana Reis. Todos os direitos reservados.</p>
+        <p class="credit">Feito por Agência Doryan</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
